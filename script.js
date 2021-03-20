@@ -4,10 +4,17 @@ var generateBtn = document.querySelector("#generate")
 // Adding an event listener to the generate button; when it's clicked, write the password
 generateBtn.addEventListener("click", writePassword())
 
+function writePassword() {
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
+
+    passwordText.value = password;
+
+function generatePassword() {
 // This function prompts the user to ask what sort of characters they would like to use. 
 // Then it generates a random password by choosing randomly from arrays based on their choices.
 // It then returns the newPassword.
-function generatePassword() {
+
     // These prompts ask the user what type of characters they would like to use.
     // If they choose a number that's outside of the range 8-128, they are prompted to
     // choose another number within the range.
@@ -84,13 +91,4 @@ function generatePassword() {
     // We return the new password
     return newPassword
   }
-
-// This function assigns the value returned from generatePassword to the variable password, 
-function writePassword() {
-    var password = generatePassword();
-    var passwordText = document.querySelector("#password");
-
-    passwordText.value = password;
 }
-
-
