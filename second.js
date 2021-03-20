@@ -1,15 +1,4 @@
-// Selecting the button with ID generate and linking it to the variable generateBtn
-var generateBtn = document.querySelector("#generate")
-
-// Adding an event listener to the generate button; when it's clicked, write the password
-generateBtn.addEventListener("click", writePassword())
-
-function writePassword() {
-    var password = generatePassword();
-    var passwordText = document.querySelector("#password");
-
-    passwordText.value = password;
-}
+$( document ).ready(function() {
 
 function generatePassword() {
 // This function prompts the user to ask what sort of characters they would like to use. 
@@ -20,6 +9,10 @@ function generatePassword() {
     // If they choose a number that's outside of the range 8-128, they are prompted to
     // choose another number within the range.
     var numberChar = prompt("How many characters would you like?")
+    if (!numberChar) {
+        alert("You need to enter a number between 8 and 128.");
+        generatePassword()
+    }
     if (numberChar < 8 || numberChar > 128) {
         numberChar = prompt("Please choose a number between 8 and 128.")
     }
@@ -43,7 +36,8 @@ function generatePassword() {
     
     lettersAndSpecial = ["a", "b", "c", "d", "e", "f", "g","h", "i", "j", "k", "l",
     "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "a", "b", "c", "d", "e", "f", "g","h", "i", "j", "k", "l",
-    "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+    "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "!", "#", "$", "%", "&", "(", ")", "*",
+    "+", ",", "+", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "{", "|", "}", "~"]
 
     allThree = ["a", "b", "c", "d", "e", "f", "g","h", "i", 
     "j", "k", "l", "m", "n", "o", "p", "q", "r", 
@@ -92,5 +86,27 @@ function generatePassword() {
     return newPassword
 
   }
+
+// Selecting the button with ID generate and linking it to the variable generateBtn
+var generateBtn = document.querySelector("#generate")
+
+// Adding an event listener to the generate button; when it's clicked, write the password
+// we don't want to call the function here, so we don't put parentheses after it
+generateBtn.addEventListener("click", writePassword)
+
+// the value of the div password is the returned password
+function writePassword() {
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
+
+    passwordText.value = password;
+
+}
+
+})
+
+
+    
+
 
   
