@@ -1,5 +1,3 @@
-console.log("Hello")
-
 // STUFF HE WROTE
 var generateBtn = document.querySelector("#generate")
 
