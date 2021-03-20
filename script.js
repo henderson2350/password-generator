@@ -9,6 +9,7 @@ function writePassword() {
     var passwordText = document.querySelector("#password");
 
     passwordText.value = password;
+}
 
 function generatePassword() {
 // This function prompts the user to ask what sort of characters they would like to use. 
@@ -87,8 +88,8 @@ function generatePassword() {
         }
     
     }
-
     // We return the new password
     return newPassword
   }
-}
+
+  
